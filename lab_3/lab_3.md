@@ -19,32 +19,38 @@ find / -maxdepth 1 -name "*pass*"
 find ~ -name "*.bin"```
 1. Найдите все **файлы** (и только файлы) с расширением `bak` и удалите их.
 ```
-find / -type f -name "*.bak" -delete```
+find / -type f -name "*.bak" -delete
+```
 1. Найдите все **файлы** (и только файлы) с расширениями `txt` и `sh`.
 ```
-find / -type f -name "*.txt" -or -name "*.sh"```
+find / -type f -name "*.txt" -or -name "*.sh"
+```
 1. Найдите все **файлы** (и только файлы) в текущем каталоге и выведите **только** имя файла (без каталога), владельца, группу владельца, количество жёстких ссылок на этот файл и его размер в байтах.
 ```
-find -maxdepth 1 -type f -exec basename {} \; | xargs ls -l | tr -s ' ' | cut -d' ' -f2,3,4,5,9```
+find -maxdepth 1 -type f -exec basename {} \; | xargs ls -l | tr -s ' ' | cut -d' ' -f2,3,4,5,9
+```
 1. Найдите все пустые **каталоги** в текущем каталоге.
 ```
-find . -maxdepth 1 -type d -empty```
+find . -maxdepth 1 -type d -empty
+```
 1. Найдите все пустые **каталоги** в текущем каталоге и удалите их.
 ```
-find . -maxdepth 1 -type d -empty -delete```
+find . -maxdepth 1 -type d -empty -delete
+```
 1. Найдите и удалите все пустые **файлы** (и только файлы).
 ```
-find . -maxdepth 1 -type f -empty -delete```
+find . -maxdepth 1 -type f -empty -delete
+```
 1. Найдите все **файлы** (и только файлы) в текущем каталоге, на которые есть хотя бы одна жёсткая ссылка.
 ```
-find . -maxdepth 1 -type f -links +0```
+find . -maxdepth 1 -type f -links +0
+```
 1. Найдите файлы и каталоги в каталоге `/etc`, **не** принадлежащие пользователю `root`.
 ```
 find /etc -maxdepth 1 -not -user root
 ```
 1. Найдите все **файлы** (и только файлы), у которых **нет** расширения `sh`.
 ```
-``
 find / -type f -not -name "*.sh"
 ```
 1. Найдите все **файлы** (и только файлы), у которых количество жёстких ссылок более двух.
